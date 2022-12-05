@@ -1,10 +1,23 @@
-const getProductsOfNormalQuality = () => {};
+import { productList } from "./data";
 
-const getProductImageWithPngExtension = () => {};
+const getProductsOfNormalQuality = (pProduct) => {
+  return pProduct.filter((product) => product.quality === "Normal");
+};
 
-const getCalorieOfTheMostExpensiveProduct = () => {};
+const getProductImageWithPngExtension = (pProduct) => {
+  return pProduct.filter((product) => product.productImage.endsWith(".png"));
+};
 
-const sortByExpirationDate = () => {};
+const getCalorieOfTheMostExpensiveProduct = (pProduct) => {
+  let result = Math.max(...pProduct.map((product) => product.price));
+  return pProduct.find((product) => product.price === result).totalCalories;
+};
+
+const sortByExpirationDate = (pProduct) => {
+  return pProduct.sort(
+    (x, y) => new Date(x.expireDate) - new Date(y.expireDate)
+  );
+};
 
 export {
   getProductsOfNormalQuality,

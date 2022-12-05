@@ -82,4 +82,5 @@ const productList = [
   },
 ];
 
+
 export { productList };
